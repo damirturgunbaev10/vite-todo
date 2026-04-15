@@ -10,6 +10,10 @@ const App = () => {
     setTodos([...todos, todo]);
   };
 
+  const handleDelete = (index) => {
+    setTodos(todos.filter((_, i) => i !== index));
+  }
+
   return (
     <div>
       <div className="todo">
@@ -17,7 +21,7 @@ const App = () => {
 
         <TodoForm todos={handleTodos} />
 
-        <Todolist todos={todos} />
+        <Todolist todos={todos} deleteTodo={handleDelete} />
       </div>
     </div>
   );

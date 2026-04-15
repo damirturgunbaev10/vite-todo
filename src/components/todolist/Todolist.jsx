@@ -1,12 +1,14 @@
 import React from "react";
+import Todo from "../todo/Todo";
 
-const Todolist = ({ todos }) => {
+const Todolist = ({ todos, deleteTodo }) => {
   return (
-    <ul>
+    <>
+      {todos.length === 0 && <h2>no todos</h2>}
       {todos.map((item, index) => (
-        <li className="todoLi" key={index}>{item} <button>edit</button></li>
+        <Todo key={index} index={index} todo={item} deleteTodo={deleteTodo} />
       ))}
-    </ul>
+    </>
   );
 };
 
